@@ -5,7 +5,7 @@
 using namespace std;
 
 int cheetah(int money){
-    int have,ticket,exchange,leftticket,result=0,exchange2=0,ticket2,round2,x,y;
+    int have,ticket,exchange,leftticket,result=0,exchange2=0,ticket2,round2,add;
     if(money>=10){
         have = money/10;
         ticket = have;
@@ -13,13 +13,12 @@ int cheetah(int money){
         leftticket = exchange + (ticket%3);
         result = have + exchange;
     }
-    round2 = leftticket;
-    while(round2>=3){
-        x = leftticket/3;
-        leftticket = leftticket + x - (3*x);
-        result += x;
-        y = leftticket;
-        round2 = y;
+
+    while(leftticket>=3){
+        add = leftticket/3;
+        leftticket = leftticket + add - (3*add);
+        result += add;
+        round2 = leftticket;
     }
     return result;
 }
